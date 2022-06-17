@@ -1,0 +1,54 @@
+.stats {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px;
+
+  .stats-item {
+    text-align: center;
+    width: 210px;
+    background-color: $dark-text-color;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+
+    .add {
+      color: rgb(81, 255, 0);
+      position: absolute;
+      left: 101%;
+      animation: fadeOutSlideUp 1s ease-out forwards;
+    }
+
+    .less {
+      position: absolute;
+      color: rgb(255, 0, 0);
+      left: 101%;
+      animation: fadeOutSlideUp 1s ease-out 1 forwards;
+    }
+  }
+}
+
+@keyframes fadeOutSlideUp {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    font-size: 2rem;
+  }
+}

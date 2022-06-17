@@ -1,0 +1,31 @@
+.header {
+  background: $header-bg-color;
+  color: $light-text-color;
+  // height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: calc(2rem + 3vw);
+  font-weight: 700;
+  padding: 0 $header-padding-x;
+  border-bottom: 15px solid $dark-text-color;
+
+
+  a {
+    // transition: color 0.3s ease-out;
+    color: $light-text-color;
+    text-decoration: none;
+  }
+
+  sub {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+
+    a {
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+}

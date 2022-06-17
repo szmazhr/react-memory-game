@@ -1,0 +1,48 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: $footer-height;
+}
+
+.footer {
+  width: 100%;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  background-color: $footer-bg-color;
+  color: $dark-text-color;
+
+  height: $footer-height;
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  // display: flex;
+  // justify-content: space-between;
+  padding: 0 $footer-padding-x;
+  font-size: $footer-font-size;
+  *{
+
+    text-align: center;
+  }
+
+  a {
+    color: $dark-text-color;
+
+  }
+
+}
+.repo_link {
+  a {
+    text-decoration: none;
+    display: contents;
+    transition: color 0.3s ease-out, transform 0.3s ease-out;
+
+    &:hover {
+      color: $footer-link-hover-color;
+    }
+  }
+}

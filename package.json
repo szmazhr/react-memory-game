@@ -1,17 +1,31 @@
 {
-  "name": "react-webpack-setup",
+  "name": "react-memory-game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist",
     "dev": "webpack server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szmazhr/react-memory-game.git"
+  },
   "author": "Shahzar Mazhar <mohdshahzar.1996@gmail.com> (http://t.co/szmazhr/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szmazhr/react-memory-game/issues",
+    "email": "mohdshahzar.1996@gmail.com"
+  },
+  "homepage": "https://szmazhr.github.io/szmazhr/react-memory-game",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
@@ -31,6 +45,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",

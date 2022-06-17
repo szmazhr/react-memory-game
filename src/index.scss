@@ -1,7 +1,7 @@
-#root{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  text-align: center;
-}
+@import './components/scss/variables';
+@import './components/scss/initials';
+@import './components/scss/header';
+@import './components/scss/footer';
+@import './components/scss/card';
+@import './components/scss/stats';
+@import './components/scss/instruction';

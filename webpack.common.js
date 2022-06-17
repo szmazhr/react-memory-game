@@ -6,6 +6,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(jp[e]?g|svg|png)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules)/,
         include: path.join(__dirname, 'src'),
@@ -16,7 +20,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: '/src/index.html',
-      title: 'React Webpack Initial Setup',
+      title: 'React Memory Game',
     }),
   ],
 };
