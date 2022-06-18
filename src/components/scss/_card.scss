@@ -19,6 +19,13 @@
   border-radius: 15px;
   transition: box-shadow 0.3s ease-out;
   cursor: pointer;
+  
+  &.success{
+    background-color: #2bf12b;
+  }
+  &.failed{
+    background-color: #f12b2b;
+  }
 
   &-img {
 

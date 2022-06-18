@@ -24,8 +24,13 @@ function CardsWrapper({ setScore }) {
   // previous selected countries
   const [prevSelected, setPrevSelected] = React.useState([]);
   // current selected countries
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState({});
   const [countryElements, setCountryElements] = React.useState([]);
+
+  const handleClick = (e, code) => {
+    setSelected({ code, element: e.target.closest('.card') });
+  };
+
   const CountryCards = countriesWFlag
     .filter((country) => selectedCountries.includes(country.code))
     .map((country) => (
@@ -34,27 +39,47 @@ function CardsWrapper({ setScore }) {
         code={country.code}
         name={country.name}
         flag={country.flag} // could spread the object here but eslint complains
-        onClick={() => setSelected(country.code)}
+        onClick={(e) => handleClick(e, country.code)}
       />
     ));
+
   useEffect(() => {
     setCountryElements(
-      CountryCards.filter((country) => country.key !== selected).sort(
+      CountryCards.filter((country) => country.key !== selected.code).sort(
         () => Math.random() - 0.5
       )
     );
   }, [prevSelected]);
 
   useEffect(() => {
-    if (prevSelected.includes(selected)) {
-      setScore(0);
-      setPrevSelected([]);
-      setSelected('');
+    const clearSuccess = document.querySelectorAll('.success');
+    const clearFailed = document.querySelectorAll('.failed');
+
+    clearSuccess.forEach((item) => {
+      item.classList.remove('success');
+    });
+
+    clearFailed.forEach((item) => {
+      item.classList.remove('failed');
+    });
+
+    if (prevSelected.includes(selected.code)) {
+      selected.element.classList.add('failed');
+      setTimeout(() => {
+        setScore(0);
+        setPrevSelected([]);
+        setSelected({});
+      }, 100);
     } else {
-      setPrevSelected([...prevSelected, selected]);
-      setScore(prevSelected.length);
+      if (selected.element) {
+        selected.element.classList.add('success');
+      }
+      setTimeout(() => {
+        setPrevSelected([...prevSelected, selected.code]);
+        setScore(prevSelected.length);
+      }, 100);
     }
-  }, [selected]);
+  }, [selected.code]);
 
   return <div className="cards-wrapper">{countryElements}</div>;
 }
