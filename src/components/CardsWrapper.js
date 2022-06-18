@@ -4,11 +4,21 @@ import countryList from '../country.json';
 import Card from './Card';
 
 const flags = require.context('../assets/flags', false, /\.svg$/);
-const countriesWFlag = countryList.map((country) => ({
-  ...country,
-  flag: flags(`./${country.code}.svg`),
-}));
-const selectedCountries = ['in'];
+const countriesWFlag = countryList
+  .filter((country) => country.iso)
+  .map((country) => ({
+    ...country,
+    flag: flags(`./${country.code}.svg`),
+  }));
+
+const selectedCountries = countriesWFlag
+  .map((country) => country.code)
+  .sort(() => Math.random() - 0.5)
+  .splice(countriesWFlag.length - 20);
+
+if (!selectedCountries.includes('in')) {
+  selectedCountries.push('in');
+}
 
 function CardsWrapper({ setScore }) {
   // previous selected countries
