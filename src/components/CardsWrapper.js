@@ -14,7 +14,7 @@ const countriesWFlag = countryList
 const selectedCountries = countriesWFlag
   .map((country) => country.code)
   .sort(() => Math.random() - 0.5)
-  .splice(countriesWFlag.length - 20);
+  .splice(countriesWFlag.length - 30);
 
 if (!selectedCountries.includes('in')) {
   selectedCountries.push('in');
